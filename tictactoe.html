@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css start -->
+    <style>
+        body
+        {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url(img/t1.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        } 
+        .box
+        {
+            width: 250px;
+            height: 250px;
+            margin: auto;
+        }
+        input
+        {
+            width: 70px;
+            height: 70px;
+            background-color: rgb(150, 142, 142);
+            margin: 2px;
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            border: none;
+        }
+        h2
+        {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+    <!-- css end -->
+</head>
+<body>
+    <!-- html start -->
+    <div class="container">
+        <div class="box">
+            <input type="button" id="btn1" onclick="display('btn1')">
+            <input type="button" id="btn2" onclick="display('btn2')">
+            <input type="button" id="btn3" onclick="display('btn3')">
+            <input type="button" id="btn4" onclick="display('btn4')">
+            <input type="button" id="btn5" onclick="display('btn5')">
+            <input type="button" id="btn6" onclick="display('btn6')">
+            <input type="button" id="btn7" onclick="display('btn7')">
+            <input type="button" id="btn8" onclick="display('btn8')">
+            <input type="button" id="btn9" onclick="display('btn9')">
+        </div>
+    <h2 id="info"></h2>
+    </div>
+    <!-- html end -->
+
+    <!-- javascript start -->
+    <script>
+        var count = 1;
+        function disableButton()
+        {
+            btn1 = document.getElementById("btn1").disabled = true;
+            btn2 = document.getElementById("btn2").disabled = true;
+            btn3 = document.getElementById("btn3").disabled = true;
+            btn4 = document.getElementById("btn4").disabled = true;
+            btn5 = document.getElementById("btn5").disabled = true;
+            btn6 = document.getElementById("btn6").disabled = true;
+            btn7 = document.getElementById("btn7").disabled = true;
+            btn8 = document.getElementById("btn8").disabled = true;
+            btn9 = document.getElementById("btn9").disabled = true;
+        }
+        function display(element)  
+        {
+            if(count % 2 == 0)
+            {
+                document.getElementById(element).value = "O";
+            }
+            else
+            {
+                document.getElementById(element).value = "X";
+            }
+            count++;
+
+            btn1 = document.getElementById("btn1").value;
+            btn2 = document.getElementById("btn2").value;
+            btn3 = document.getElementById("btn3").value;
+            btn4 = document.getElementById("btn4").value;
+            btn5 = document.getElementById("btn5").value;
+            btn6 = document.getElementById("btn6").value;
+            btn7 = document.getElementById("btn7").value;
+            btn8 = document.getElementById("btn8").value;
+            btn9 = document.getElementById("btn9").value;
+
+            if(btn1== "X" && btn2== "X" && btn3== "X")
+            {
+                document.getElementById("info").innerText = "X is winner";
+                disableButton();
+            }
+            else if(btn4== "X" && btn5== "X" && btn6== "X")
+            {
+                document.getElementById("info").innerText = "X is winner";
+                disableButton();
+            }
+            else if(btn7== "X" && btn8== "X" && btn9== "X")
+            {
+                document.getElementById("info").innerText = "X is winner";
+                disableButton();
+            }
+            else if(btn1== "X" && btn4== "X" && btn7== "X")
+            {
+                document.getElementById("info").innerText = "X is winner";
+                disableButton();
+            }
+            else if(btn2== "X" && btn5== "X" && btn8== "X")
+            {
+                document.getElementById("info").innerText = "X is winner";
+                disableButton();
+            }
+            else if(btn3== "X" && btn6== "X" && btn9== "X")
+            {
+                document.getElementById("info").innerText = "X is winner";
+                disableButton();
+            }
+            else if(btn1== "X" && btn5== "X" && btn9== "X")
+            {
+                document.getElementById("info").innerText = "X is winner";
+                disableButton();
+            }
+            else if(btn3== "X" && btn5== "X" && btn7== "X")
+            {
+                document.getElementById("info").innerText = "X is winner";
+                disableButton();
+            }
+            else if(btn1== "O" && btn2== "O" && btn3== "O")
+            {
+                document.getElementById("info").innerText = "O is winner";
+                disableButton();
+            }
+            else if(btn4== "O" && btn5== "O" && btn6== "O")
+            {
+                document.getElementById("info").innerText = "O is winner";
+                disableButton();
+            }
+            else if(btn7== "O" && btn8== "O" && btn9== "O")
+            {
+                document.getElementById("info").innerText = "O is winner";
+                disableButton();
+            }
+            else if(btn1== "O" && btn4== "O" && btn7== "O")
+            {
+                document.getElementById("info").innerText = "O is winner";
+                disableButton();
+            }
+            else if(btn2== "O" && btn5== "O" && btn8== "O")
+            {
+                document.getElementById("info").innerText = "O is winner";
+                disableButton();
+            }
+            else if(btn3== "O" && btn6== "O" && btn9== "O")
+            {
+                document.getElementById("info").innerText = "O is winner";
+                disableButton();
+            }
+            else if(btn1== "O" && btn5== "O" && btn9== "O")
+            {
+                document.getElementById("info").innerText = "O is winner";
+                disableButton();
+            }
+            else if(btn3== "O" && btn5== "O" && btn7== "O")
+            {
+                document.getElementById("info").innerText = "O is winner";
+                disableButton();
+            }
+            else if(count > 9)
+            {
+                document.getElementById("info").innerText = "Match Draw";
+            }
+        }
+    </script>
+    <!-- javascript end -->
+</body>
+</html>
