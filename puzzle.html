@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css start -->
+    <style>
+        body
+        {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        } 
+        .box
+        {
+            width: 250px;
+            height: 250px;
+            margin: auto;
+        }
+        input
+        {
+            width: 70px;
+            height: 70px;
+            background-color: rgb(150, 142, 142);
+            margin: 2px;
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            border: none;
+        }  
+        .empty
+        {
+            background-color: rgb(150, 142, 142);
+            margin: 2px;
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            border: none;
+        }
+        h1
+        {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: rgb(11, 11, 11);
+        }
+      </style>
+      <!-- css end -->
+</head>
+<body>
+    <!-- html start -->
+    <div class="container">
+        <h1>Puzzle</h1>
+        <div class="box">
+            <input type="button" id="btn1" value="2" onclick="oneclick('btn1')">
+            <input type="button" id="btn2" value="3" onclick="oneclick('btn2')">
+            <input type="button" id="btn3" value="5" onclick="oneclick('btn3')">
+            <input type="button" id="btn4" value="7" onclick="oneclick('btn4')">
+            <input type="button" id="btn5" value="4" onclick="oneclick('btn5')">
+            <input type="button" id="btn6" value="8" onclick="oneclick('btn6')">
+            <input type="button" id="btn7" value="1" onclick="oneclick('btn7')">
+            <input type="button" class="empty" id="btn8" value="" onclick="oneclick('btn8')">
+            <input type="button" id="btn9" value="6" onclick="oneclick('btn9')">
+        </div>
+    </div>
+    <!-- html end -->
+
+    <!-- javascript start -->
+    <script>
+        function oneclick(btnId)  
+        {
+            cols = document.getElementsByClassName("empty");
+            click = document.getElementById(btnId);
+            clicked = click.value;
+            console.log("first"+click);
+            console.log("second"+clicked);
+
+            if(cols[0].getAttribute('id') == "btn1" && (btnId == "btn2" || btnId == "btn4"))
+            {
+                changevalue(cols);
+            }
+            else if(cols[0].getAttribute('id') == "btn2" && (btnId == "btn1" || btnId == "btn3" || btnId == "btn5"))
+            {
+                changevalue(cols);
+            }
+            else if(cols[0].getAttribute('id') == "btn3" && (btnId == "btn2" || btnId == "btn6"))
+            {
+                changevalue(cols);
+            }
+            else if(cols[0].getAttribute('id') == "btn4" && (btnId == "btn1" || btnId == "btn5" || btnId == "btn7"))
+            {
+                changevalue(cols);
+            }
+            else if(cols[0].getAttribute('id') == "btn5" && (btnId == "btn2" || btnId == "btn4" || btnId == "btn6" || btnId == "btn8"))
+            {
+                changevalue(cols);
+            }
+            else if(cols[0].getAttribute('id') == "btn6" && (btnId == "btn3" || btnId == "btn5" || btnId == "btn9"))
+            {
+                changevalue(cols);
+            }
+            else if(cols[0].getAttribute('id') == "btn7" && (btnId == "btn4" || btnId == "btn8"))
+            {
+                changevalue(cols);
+            }
+            else if(cols[0].getAttribute('id') == "btn8" && (btnId == "btn5" || btnId == "btn7" || btnId == "btn9"))
+            {
+                changevalue(cols);
+            }
+            else if(cols[0].getAttribute('id') == "btn9" && (btnId == "btn6" || btnId == "btn8"))
+            {
+                changevalue(cols);
+            }
+            else
+            {
+                alert("Invalid Move");
+            }
+
+            function changevalue(cols)
+            {
+                click.value = "";
+                cols[0].value = clicked;
+                cols[0].classList.remove('empty');
+                click.classList.add('empty');
+            }
+        }
+    </script>
+    <!-- javascript end -->
+</body>
+</html>

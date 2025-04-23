@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css1/all.min.css">
+    <!-- css start -->
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .box
+        {
+            width: 100%;
+            height: 40px;
+            background-color: #9d9a9a;
+            text-align: center;
+            font-size: 34px;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+        .box1
+        {
+            width: 100%;
+            height: 452px;
+            background-color: #FFFFFF;
+        }
+        .box2
+        {
+            width: 70%;
+            height: 450px;
+            background-color: #D4D4D4;
+            float: left;
+        }
+        .box3
+        {
+            width: 30%;
+            height: 200px;
+            background-color: #B3B3B3;
+            float: left;
+            margin: 10px;
+        }
+        .container
+        {
+            width: 100%;
+            height: 100vh;
+        }
+        img
+        {
+            width: 92%;
+            height: 61%;
+            margin: 5px 0px 0px 8px;
+        }
+        h3
+        {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .icon
+        {
+            font-size: 15px;
+        }
+        .box4
+        {
+            width: 60%;
+            height: 20px;
+            float: left;
+            margin-left: 7px;
+        }
+        .box5
+        {
+            width: 29%;
+            height: 20px;
+            float: left;
+            text-align: end;
+        }
+        .btn
+        {
+            width: 90%;
+            height: 30px;
+            background-color: rgb(118, 128, 216);
+            border: none;
+            font-size: 15px;
+            font-weight: bold;
+            margin: 10px;
+            cursor: pointer;
+
+        }
+        .btn:hover
+        {
+            background-color: rgb(81, 90, 168);
+            transition: all ease-in-out 0.4s;
+        }
+        input
+        {
+            border: none;
+            width: 100%;
+            height: 20px;
+            float: left;
+            background-color:  #B3B3B3;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .box0
+        {
+            width: 29%;
+            height: 400px;
+            /* background-color: #aa3131; */
+            float: left;
+            margin: 5px;
+        }
+        .discount-btn
+        {
+            /* margin-left: 0px; */
+            width: 100%;
+            height: 20px;
+            padding: 8px 5px;
+            font-weight: bold;
+            cursor: pointer;
+            /* background-color: #ccc; */
+            border: none;
+        }
+        button
+        {
+            width: 92px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #ccc;
+            height: 25px;
+        }
+        .m-2
+        {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+    <!-- css end -->
+</head>
+<body>
+    <!-- html start -->
+    <div class="container">
+        <div class="box">HOTEL MENU</div>
+        <div class="box1">
+            <div class="box2">
+                <div class="box3">
+                    <img src="img/h1.png" alt="">
+                    <div class="box4">
+                        <h3>Burger</h3>
+                    </div>
+                    <div class="box5">
+                        <input type="text" value="100" id="n1">
+                    </div>
+                    <input type="button" value="Add to Cart" class="btn" onclick="add('n1')">
+                </div>
+                <div class="box3">
+                    <img src="img/h2.png" alt="">
+                    <div class="box4">
+                        <h3>Frankie</h3>
+                    </div>
+                    <div class="box5">
+                        <input type="text" value="120" id="n2">
+                    </div>
+                    <input type="button" value="Add to Cart" class="btn" onclick="add('n2')">
+                </div>
+                <div class="box3">
+                    <img src="img/h3.png" alt="">
+                    <div class="box4">
+                        <h3>Dosa</h3>
+                    </div>
+                    <div class="box5">
+                        <input type="text" value="180" id="n3">
+                    </div>
+                    <input type="button" value="Add to Cart" class="btn" onclick="add('n3')">
+                </div>
+                <div class="box3">
+                    <img src="img/h4.png" alt="">
+                    <div class="box4">
+                        <h3>Pizza</h3>
+                    </div>
+                    <div class="box5">
+                        <input type="text" value="210" id="n4">
+                    </div>
+                    <input type="button" value="Add to Cart" class="btn" onclick="add('n4')">
+                </div>
+                <div class="box3">
+                    <img src="img/h5.png" alt="">
+                    <div class="box4">
+                        <h3>Manchurian</h3>
+                    </div>
+                    <div class="box5">
+                        <input type="text" value="160" id="n5">
+                    </div>
+                    <input type="button" value="Add to Cart" class="btn" onclick="add('n5')">
+                </div>
+                <div class="box3">
+                    <img src="img/h7.png" alt="">
+                    <div class="box4">
+                        <h3>Main Course</h3>
+                    </div>
+                    <div class="box5">
+                        <input type="text" value="Rs.320" id="n6" >
+                    </div>
+                    <input type="button" value="Add to Cart" class="btn" id="btn" onclick="add('n6')">
+                </div>
+            </div>
+
+            <div class="box0">
+                <p class="m-2">Total :- <span id="total">Rs.0.00</span></p><hr>
+                <p class="m-2">Discount :- <span id="discount">Rs.0.00</span></p><hr>
+                <p class="m-2">GST (10%) :- <span id="gst">Rs.0.00</span></p><hr>
+                <p class="m-2"><strong>Final Total :- <span id="info">Rs.0.00</span></strong></p><hr>
+                <div class="discount-btn m-2" >
+                    <button onclick="discount('5')">5% Discount</button>
+                    <button onclick="discount('10')">10% Discount</button>
+                    <button onclick="discount('15')">15% Discount</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- html end -->
+
+    <!-- javascript start -->
+    <script>
+        var total = 0;
+        var disc = 0;
+        function add(id)
+        {
+            value = document.getElementById(id).value;
+            value = parseInt(value.replace("Rs.",""));
+            total = total + value ;
+            display();
+        }
+        function discount(disId)
+        {
+            disc = disId;
+            display();
+        }
+        function display()
+        {
+            dis = (total * disc)/100;
+            totals = total - dis;
+            gst = totals * 0.10;
+            totalss = totals + gst;
+            document.getElementById("total").innerText = "Rs." + total;
+            document.getElementById("discount").innerText = "Rs." + dis;
+            document.getElementById("gst").innerText = "Rs." + gst;
+            document.getElementById("info").innerText = "Rs." + totalss; 
+        }
+    </script>
+    <!-- javascript end -->
+</body>
+</html>
