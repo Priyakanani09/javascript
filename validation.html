@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css start -->
+    <style>
+        body
+        {
+            height: 100vh;
+            background-color: rgb(240, 245, 245);
+            font-family: Arial, sans-serif;
+        }
+        form 
+        {
+            width: 500px;
+            /* justify-content: center; */
+            margin:auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .input
+        {
+            width: 100%;
+            height: 25px;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .radio
+        {
+            width: 15px;
+            margin-top: 7px;
+            /* margin-bottom: 20px; */
+        }
+        h1
+        {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .hobi
+        {
+            width: 15px;
+            margin-top: 7px;
+            margin-bottom: 7px;
+        }
+        .btn
+        {
+            background-color: #4CAF50; 
+            color: white; 
+            margin-top: 10px;
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer;
+            padding: 10px 24px; 
+        }
+    </style>
+    <!-- css end -->
+</head>
+<body>
+    <!-- html start -->
+    <h1>Registration Form</h1>
+    <form>
+        Full Name : <br><input type="text" id="fname" value="" class="input"><span id="erfname" style="color: red;"></span><br>
+        Email Id : <br><input type="email" id="email" value="" class="input"><span id="eremail" style="color: red;"></span><br>
+        Mobile No. : <br><input type="number" id="mobile" value="" class="input"><span id="ermobile" style="color: red;"></span><br>
+        Birth Date : <br><input type="date" id="bdate" value="" class="input"><br><br>
+        Address : <br><input type="text" id="address" value="" class="input"><br><br>
+        State : <br>
+            <select id="state" class="input" onchange="select()">
+                <option value="">Select State</option>
+                <option value="Gujrat">Gujrat</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Delhi">Delhi</option>
+            </select>
+            <span id="erstate" style="color: red;"></span>
+        <br><br>
+
+        City : <br>
+            <select id="city" class="input">
+                <option value="">Select City</option>
+            </select>
+            <span id="ercity" style="color: red;"></span>
+        <br><br>
+        Pincode : <br><input type="number" id="pincode" value="" class="input"><br><span id="erpincode" style="color: red;"></span><br>
+
+        Gender : <br><input type="radio" class="radio" id="male-gender" name="gender" value="male">Male &nbsp;
+        <input type="radio" name="gender" value="female" id="female-gender" class="radio">Female<br><span id="ergender" style="color: red;"></span><br>
+
+        Hobbies : <br>
+        <input type="checkbox" class="hobi" name="hobi[]" value="cricket">Cricket
+        <input type="checkbox" class="hobi" name="hobi[]" value="singing">Singing
+        <input type="checkbox" class="hobi" name="hobi[]" value="reading">Reading<br><span id="erhobi" style="color: red;"></span><br>
+        
+
+        Password : <br><input type="password" id="password" value="" class="input"><span id="erpassword" style="color: red;"></span><br>
+        Confirm Password : <br><input type="password" id="cpassword" value="" class="input" onkeyup="confirm()"><span id="ercpassword" style="color: red;"></span><br>
+
+        <!-- Month : <br><input type="month" id="month" value="" class="input"><br> -->
+        <!-- week : <br><input type="week" id="week" value="" class="input"><br> -->
+        <!-- Image : <br><input type="image" id="image" value="" class="input"><br> -->
+        <!-- Birth Date : <br><input type="datetime-local" id="bdate" value="" class="input"><br> -->
+        <!-- Favorite Color : <br><input type="color" id="color" value="" class="input"><br> -->
+        <!-- rating : <br><input type="range" id="rating" value="" class="input"><br> -->
+        <!-- file : <br><input type="file" id="file" value="" class="input"><br> -->
+        
+        <input type="button" value="Submit" onclick="formsub()" class="btn">
+        </form>
+    <!-- html end -->
+
+    <!-- javasript start -->
+    <script>
+        fname = document.getElementById("fname");
+        email = document.getElementById("email");
+        mobile = document.getElementById("mobile");
+        pincode = document.getElementById("pincode");
+        password = document.getElementById("password");
+        cpassword = document.getElementById("cpassword");
+        var x = document.getElementsByClassName("hobi");
+        male = document.getElementById("male-gender");
+        female = document.getElementById("female-gender");
+        state = document.getElementById("state");
+        city = document.getElementById("city");
+
+        function select() 
+        {
+            state = document.getElementById("state").value;
+            city = document.getElementById("city").value;
+            if(state == "Gujrat")
+            {
+                document.getElementById("city").innerHTML = `
+                <option value="">Select City</option>
+                <option value="Surat">Surat</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Vadodara">Vadodara</option>
+                <option value="Rajkot">Rajkot</option>`;
+            }
+            else if(state == "Rajasthan")
+            {
+                document.getElementById("city").innerHTML = `
+                <option value="">Select City</option>
+                <option value="Jaypur">Jaipur<option>
+                <option value="Udaipur">Udaipur<option>
+                <option value="Ajmer">Ajmer<option>
+                <option value="Jodhpur">Jodhpur</option>`;
+            }
+            else if(state == "Maharashtra")
+            {
+                document.getElementById("city").innerHTML = `
+                <option value="">Select City</option>
+                <option value="Mumbai">Mumbai<option>
+                <option value="Pune">Pune<option>
+                <option value="Nashik">Nashik<option>`;
+            }
+            else if(state == "Delhi")
+            {
+                document.getElementById("city").innerHTML = `
+                <option value="">Select City</option>
+                <option value="New Delhi">New Delhi</option>
+                <option value="South Delhi">South Delhi</option>
+                <option value="East Delhi">East Delhi</option>
+                <option value="North Delhi">North Delhi</option>`;
+            }
+        }
+
+        function confirm() 
+        {
+            //confirm password
+            if(password.value != cpassword.value)
+            {
+                document.getElementById("ercpassword").innerText = "Password not match."
+            }
+            else
+            {
+                document.getElementById("ercpassword").innerText = "Password match"
+                document.getElementById("ercpassword").style.color = "green";
+            }
+            
+        }
+        function formsub() 
+        {
+            //fname validation
+            if(fname.value == "")
+            {
+                document.getElementById("erfname").innerText = "First Name must be required."
+            }
+            else
+            {
+                document.getElementById("erfname").innerText = ""
+            }
+
+            //email validation
+            if(email.value == "")
+            {
+                document.getElementById("eremail").innerText = "Email must be required."
+            }
+            else
+            {                
+                regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!regex.test(email.value)) 
+                {
+                    document.getElementById("eremail").innerText = "Invalid Email address."
+                }
+                else
+                {
+                    document.getElementById("eremail").innerText = ""
+                }
+            }
+
+            //mobile validation
+            if(mobile.value == "")
+            {
+                document.getElementById("ermobile").innerText = "Mobile number must be required."
+            }
+            else
+            {
+                if(mobile.value.length != 10)
+                {
+                    document.getElementById("ermobile").innerText = "Mobile number must be 10 digit."
+                }
+                else
+                {
+                    document.getElementById("ermobile").innerText = ""
+                }
+            }
+
+            // state validation
+            if(state.value == "")
+            {
+                document.getElementById("erstate").innerText = "State must be required."
+            }
+            else
+            {
+                document.getElementById("erstate").innerText = ""
+            }
+
+            // city validation
+            if(city.value == "")
+            {
+                document.getElementById("ercity").innerText = "City must be required."
+            }
+            else
+            {
+                document.getElementById("ercity").innerText = ""
+            }
+
+            // pincode validation
+            if(pincode.value == "")
+            {
+                document.getElementById("erpincode").innerText = "Pincode must be required."
+            }
+            else
+            {
+                if(pincode.value.length != 6)
+                {
+                    document.getElementById("erpincode").innerText = "Pincode must be 6 digit."
+                }
+                else
+                {
+                    document.getElementById("erpincode").innerText = ""
+                }
+            }
+
+            // gender validation
+            if(male.checked == "" && female.checked == "")
+            {
+                document.getElementById("ergender").innerText = "Gender must be select."
+            }
+            else
+            {
+                document.getElementById("ergender").innerText = ""
+            }
+
+            // hobi validation
+            var hobi = "";
+            for (var i = 0; i < x.length; i++) 
+            {
+                if (x[i].checked == true) 
+                {
+                    hobi += x[i].value + " ";
+                }
+            }
+            if(hobi == "")
+            {
+                document.getElementById("erhobi").innerText = "Hobi must be select."
+            }
+            else
+            {
+                document.getElementById("erhobi").innerText = "You have selected: " + hobi;
+                document.getElementById("erhobi").style.color = "green";
+            }
+            
+            //password validation
+            if(password.value == "")
+            {
+                document.getElementById("erpassword").innerText = "Password must be required."
+            }
+            else
+            {
+                document.getElementById("erpassword").innerText = ""
+            }
+        }
+    </script>
+    <!-- javasript end -->
+</body>
+</html>
