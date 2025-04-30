@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css start -->
+    <style>
+        body
+        {
+            width: 99%;
+            height: 90vh;
+            background-color: rgb(0, 61, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .digit
+        {
+            width: 78px;
+            height: 100px;
+            text-align: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            float: left;
+            font-family: arial;
+        }
+        .txt
+        {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            float: left;
+            padding-top: 44px;
+        }
+        h1
+        {
+            color: rgb(10, 238, 10);
+            font-size: 35px;
+            font-weight: bold;
+            text-align: center;
+        }
+        button
+        {
+            width: 104px;
+            height: 35px;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0px 14px 0px 20px;
+            cursor: pointer;
+        }
+        .btn1
+        {
+            background-color: rgb(43, 226, 43);
+            color: white;
+        }
+        .btn2
+        {
+            background-color: rgb(238, 10, 10);
+            color: white;
+        }
+        .btn3
+        {
+            background-color: rgb(10, 10, 238);
+            color: white;
+        }
+    </style>
+    <!-- css end -->
+</head>
+<body>
+    <!-- html start -->
+    <div class="container">
+        <h1>Stopwatch</h1>
+        <div class="digit" id="hr">00</div>
+        <div class="txt">Hr.</div>
+        <div class="digit" id="min">00</div>
+        <div class="txt">Min.</div>
+        <div class="digit" id="sec">00</div>
+        <div class="txt">Sec.</div>
+        <div class="digit" id="msec">00</div>
+        <div class="txt">Msec.</div>
+        <div>
+            <button class="btn1" onclick="start()" id="start">Start</button>
+            <button class="btn2" onclick="stop()" id="stop">Stop</button>
+            <button class="btn3" onclick="reset()" id="reset">Reset</button>
+        </div>
+    </div>
+    <!-- html end -->
+
+    <!-- javascript start -->
+    <script>
+        var hr = 0,min = 0,sec = 0,msec = 0;
+        let timer = false;
+        function start() 
+        {   
+            timer = true;
+            watch();
+        }
+        function stop() 
+        {
+            timer = false; 
+        }
+        function reset() 
+        {
+            // timer = false;
+            // hr = 0;
+            // min = 0;
+            // sec = 0;
+            // msec = 0;
+            document.getElementById('hr').innerHTML = "00";
+            document.getElementById('min').innerHTML = "00";
+            document.getElementById('sec').innerHTML = "00";
+            document.getElementById('msec').innerHTML = "00";
+        }
+
+        function watch() {
+            setTimeout(()=>{
+                if(timer == true)
+                {
+                    msec++;
+                    if(msec == 100) 
+                    {
+                        sec++;
+                        msec = 0;
+                    }
+                    if(sec == 60)
+                    {
+                        min++;
+                        sec = 0;
+                    }
+                    if(min == 60) 
+                    {
+                        hr++;
+                        min = 0;
+                    }
+
+                    // let hrString = hr;
+                    // let minString = min;
+                    // let secString = sec;
+                    // let msecString = msec;
+                    // if(hr < 10) 
+                    // {
+                    //     hrString = "0" + hr;
+                    // }
+                    // if(min < 10) 
+                    // {
+                    //     minString = "0" + min;
+                    // }
+                    // if(sec < 10) 
+                    // {
+                    //     secString = "0" + sec;
+                    // }
+                    // if(msec < 10) 
+                    // {
+                    //     msecString = "0" + msec;
+                    // }
+
+                    document.getElementById('hr').innerHTML = hr.toString().padStart(2,'0');
+                    document.getElementById('min').innerHTML = min.toString().padStart(2,'0');
+                    document.getElementById('sec').innerHTML = sec.toString().padStart(2,'0');
+                    document.getElementById('msec').innerHTML = msec.toString().padStart(2,'0');
+                    // setTimeout(stopwatch, 10);
+                } 
+                watch(); 
+                },10)
+            }
+    </Script>
+    <!-- javasript end -->
+</body>
+</html>
